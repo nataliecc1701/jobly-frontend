@@ -8,6 +8,11 @@ import Loading from "./Loading";
 const CompaniesList = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [companies, setCompanies] = useState([])
+    const [formData, setFormData] = useState({
+        minEmployees: 0,
+        maxEmployees: 0,
+        nameLike: "",
+    });
     
     useEffect(() => {
         async function listCompanies() {
@@ -36,7 +41,7 @@ const CompaniesList = () => {
     if (isLoading) return <Loading />
     
     return <>
-        <CompaniesSearchForm search={search} />
+        <CompaniesSearchForm search={search} formData={formData} setFormData={setFormData} />
         {companies.map((company) => <Link key={company.handle} to={`/companies/${company.handle}`} ><CompanyCard company={company} /></Link>)}
     </>
 }

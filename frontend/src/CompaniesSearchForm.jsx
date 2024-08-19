@@ -1,12 +1,6 @@
 import React, { useState } from "react"
 
-const CompaniesSearchForm = ({ search }) => {
-    const [formData, setFormData] = useState({
-        minEmployees: 0,
-        maxEmployees: 0,
-        nameLike: "",
-    });
-    
+const CompaniesSearchForm = ({ search, formData, setFormData }) => {
     const handleChange = (evt) => {
         const { name, value } = evt.target;
         setFormData({...formData, [name]: value});
@@ -18,10 +12,10 @@ const CompaniesSearchForm = ({ search }) => {
     }
     
     return <form className="CompaniesSearchForm" onSubmit={handleSubmit}>
-        <label htmlFor="minEmployees">Minimum headcount</label>
+        <label htmlFor="minEmployees">Headcount min</label>
         <input name="minEmployees" type="number" value={formData.minEmployees} onChange={handleChange} />
-        <label htmlFor="maxEmployees">Maximum headcount</label>
-        <input name="maxEmployees" type="number" value={formData.maxEmployees} onChange={handleChange} />
+        <label htmlFor="maxEmployees">Max</label>
+        <input name="maxEmployees" type="number" value={formData.maxEmployees} onChange={handleChange} /><br/>
         <label htmlFor="nameLike">Name contains:</label>
         <input name="nameLike" type="text" value={formData.nameLike} onChange={handleChange} />
         <input type="submit" />
