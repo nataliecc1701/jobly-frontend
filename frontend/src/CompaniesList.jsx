@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"
 import JoblyApi from "./api";
 import CompanyCard from "./CompanyCard";
 import Loading from "./Loading";
@@ -20,7 +21,7 @@ const CompaniesList = () => {
     if (isLoading) return <Loading />
     
     return <>
-        {companies.map((company) => <CompanyCard company={company} key={company.handle} />)}
+        {companies.map((company) => <Link key={company.handle} to={`/companies/${company.handle}`} ><CompanyCard company={company} /></Link>)}
     </>
 }
 
