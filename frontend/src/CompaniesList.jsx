@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import JoblyApi from "./api";
 import CompanyCard from "./CompanyCard";
+import Loading from "./Loading";
 
 const CompaniesList = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -16,7 +17,7 @@ const CompaniesList = () => {
         listCompanies()
     }, [])
     
-    if (isLoading) return <div>Loading...</div>
+    if (isLoading) return <Loading />
     
     return <>
         {companies.map((company) => <CompanyCard company={company} key={company.handle} />)}
