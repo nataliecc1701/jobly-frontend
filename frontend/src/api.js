@@ -45,7 +45,7 @@ class JoblyApi {
       return {success: true, company: res.company};
     }
     catch(err) {
-      return {success: false, status: res.status, message: res.message}
+      return {success: false, messages: err}
     }
   }
   

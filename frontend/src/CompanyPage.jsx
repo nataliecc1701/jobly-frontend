@@ -17,7 +17,7 @@ const CompanyPage = () => {
                 setErrMsg(null)
             }
             else {
-                setErrMsg(`Error code ${res.status}: ${res.message}`)
+                setErrMsg(`Error: ${res.messages.join(", ")}`)
             }
             setIsLoading(false);
         }
