@@ -10,7 +10,6 @@ import SignupPage from "./SignupPage";
 import ProfilePage from "./ProfilePage";
 
 const Router = () => {
-    console.log("Router loaded")
     return <BrowserRouter>
         <NavBar />
         
