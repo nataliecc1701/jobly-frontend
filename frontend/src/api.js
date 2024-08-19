@@ -49,14 +49,27 @@ class JoblyApi {
     }
   }
   
-  /** Get all companies */
+  /** Get all companies
+   * takes an optional search query argument to search using the parameters
+   * provided by the back-end (minEmployees, maxEmployees, nameLike)
+   */
   
-  static async getCompanies(query) {
+  static async getCompanies(query={}) {
     let res = await this.request(`companies/`, query);
     return res.companies;
   }
 
   // obviously, you'll add a lot here ...
+  
+  /** Get all jobs
+   * Takes an optional search query argument to search using the parameters
+   * provided by the back-end (minSalary, hasEquity, title)
+   */
+  
+  static async getJobs(query={}) {
+    let res = await this.request(`jobs/`, query);
+    return res.jobs;
+  }
 }
 
 // for now, put token ("testuser" / "password" on class)
