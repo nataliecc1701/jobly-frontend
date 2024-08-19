@@ -7,7 +7,7 @@ import Loading from "./Loading";
 
 const CompaniesList = () => {
     const [isLoading, setIsLoading] = useState(true);
-    const [companies, setCompanies] = useState([])
+    const [companies, setCompanies] = useState([]);
     const [formData, setFormData] = useState({
         minEmployees: 0,
         maxEmployees: 0,
