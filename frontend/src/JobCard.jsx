@@ -17,8 +17,6 @@ const JobCard = ({ job }) => {
         return ""
     }
     
-    console.log(job)
-    
     return <section>
         <Card>
             <CardBody>
