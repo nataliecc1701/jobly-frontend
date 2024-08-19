@@ -21,7 +21,7 @@ const Router = () => {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/profile" element={<ProfilePage />} />
-            <Route element={<div>Page Not Found (404)</div>} />
+            <Route path="*" element={<div>Page Not Found (404)</div>} />
         </Routes>
     </BrowserRouter>
 }
