@@ -11,7 +11,7 @@ const CompanyCard = ({ company }) => {
         <Card>
             <CardBody>
                 <CardTitle>
-                    {company.name} {logo}
+                    <h3>{company.name}</h3> {logo}
                 </CardTitle>
                 <CardText>
                     {company.description}

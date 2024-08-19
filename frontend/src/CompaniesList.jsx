@@ -42,6 +42,7 @@ const CompaniesList = () => {
     
     return <>
         <CompaniesSearchForm search={search} formData={formData} setFormData={setFormData} />
+        <h2>Displaying {companies.length} companies:</h2>
         {companies.map((company) => <Link key={company.handle} to={`/companies/${company.handle}`} ><CompanyCard company={company} /></Link>)}
     </>
 }
