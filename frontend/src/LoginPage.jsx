@@ -1,14 +1,18 @@
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import LoginContext from "./LoginContext";
 
 const LoginPage = () => {
     const navigate = useNavigate();
-    const {auth, setLoginLoading} = useContext(LoginContext);
+    const {auth, setLoginLoading, user} = useContext(LoginContext);
     const [formData, setFormData] = useState({
         username: "",
         password: "",
     })
+    
+    useEffect(() => {
+        if (user.username) navigate("/profile")
+    }, [user])
     
     const handleChange = (evt) => {
         const { name, value } = evt.target;

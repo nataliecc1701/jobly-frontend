@@ -22,6 +22,9 @@ const NavBar = () => {
             <NavItem>
             Welcome, {user.firstName}
             </NavItem>
+            <NavItem>
+                <NavLink to="/profile">Edit Profile</NavLink>
+            </NavItem>
         </div>
     }
     

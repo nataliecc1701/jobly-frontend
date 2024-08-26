@@ -46,7 +46,7 @@ function App() {
   
   return (
     <div className='app'>
-      <LoginContext.Provider value={{auth, setLoginLoading, user: currentUser}}>
+      <LoginContext.Provider value={{auth, setLoginLoading, setCurrentUser, user: currentUser}}>
         <Router />
       </LoginContext.Provider>
     </div>

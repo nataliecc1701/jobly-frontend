@@ -5,7 +5,7 @@ import LoginContext from "./LoginContext";
 
 const requireLogin = () => {
     const { user } = useContext(LoginContext);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     
     useEffect(() => {
         if (!user.username) navigate("/login")

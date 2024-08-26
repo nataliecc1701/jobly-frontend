@@ -1,10 +1,10 @@
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import LoginContext from "./LoginContext";
 
 const SignupPage = () => {
     const navigate = useNavigate();
-    const {auth, setLoginLoading} = useContext(LoginContext)
+    const {auth, setLoginLoading, user} = useContext(LoginContext)
     const [formData, setFormData] = useState({
         username    : "",
         password    : "",
@@ -12,6 +12,10 @@ const SignupPage = () => {
         lastName    : "",
         email       : "",
     })
+    
+    useEffect(() => {
+        if (user.username) navigate("/profile")
+    }, [user])
     
     const handleChange = (evt) => {
         const { name, value } = evt.target;
@@ -34,7 +38,7 @@ const SignupPage = () => {
         setLoginLoading(false)
     }
     
-    return <form className="LoginPage" onSubmit={handleSubmit}>
+    return <form className="SignupPage" onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
         <input type="text" name="username" value={formData.username} onChange={handleChange} autoComplete="username" /><br/>
         <label htmlFor="password">Password:</label>
@@ -44,7 +48,7 @@ const SignupPage = () => {
         <label htmlFor="lastName">Last Name:</label>
         <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} autoComplete="last-name" /><br/>
         <label htmlFor="email">Email Address:</label>
-        <input type="text" name="email" value={formData.firstName} onChange={handleChange} autoComplete="email" /><br/>
+        <input type="text" name="email" value={formData.email} onChange={handleChange} autoComplete="email" /><br/>
         <input type="submit" value="Register" /><br/>
         <Link to="/login">Already have an account? Log in</Link>
     </form>
