@@ -6,9 +6,10 @@ import Router from './Router'
 import Loading from './Loading';
 import JoblyApi from './api';
 import LoginContext from './LoginContext';
+import useLocalState from './useLocalState';
 
 function App() {
-  const [token, setToken] = useState("");
+  const [token, setToken] = useLocalState("token");
   const [currentUser, setCurrentUser] = useState({});
   const [loginLoading, setLoginLoading] = useState(false);
   
