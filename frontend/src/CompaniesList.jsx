@@ -4,6 +4,7 @@ import JoblyApi from "./api";
 import CompanyCard from "./CompanyCard";
 import CompaniesSearchForm from "./CompaniesSearchForm";
 import Loading from "./Loading";
+import requireLogin from "./routeProtection";
 
 const CompaniesList = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -13,6 +14,8 @@ const CompaniesList = () => {
         maxEmployees: 0,
         nameLike: "",
     });
+    
+    requireLogin();
     
     useEffect(() => {
         async function listCompanies() {

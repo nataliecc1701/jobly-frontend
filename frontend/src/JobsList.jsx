@@ -3,11 +3,14 @@ import JoblyApi from "./api";
 import Loading from "./Loading";
 import JobCard from "./JobCard";
 import JobsSearchForm from "./JobsSearchForm";
+import requireLogin from "./routeProtection";
 
 const JobsList = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [jobs, setJobs] = useState([]);
     const [query, setQuery] = useState({});
+    
+    requireLogin();
     
     useEffect(() => {
         async function listJobs() {

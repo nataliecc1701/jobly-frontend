@@ -3,12 +3,15 @@ import { useParams } from "react-router-dom"
 import JoblyApi from "./api";
 import Loading from "./Loading";
 import JobCard from "./JobCard";
+import requireLogin from "./routeProtection";
 
 const CompanyPage = () => {
     const { id } = useParams();
     let [isLoading, setIsLoading] = useState(true);
     let [company, setCompany] = useState();
-    let [errMsg, setErrMsg] = useState(null)
+    let [errMsg, setErrMsg] = useState(null);
+    
+    requireLogin();
     
     useEffect(() => {
         async function getCompany(id) {

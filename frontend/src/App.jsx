@@ -33,7 +33,7 @@ function App() {
       setLoginLoading(false);
     }
     
-    if (token) {
+    if (token && token != "null") {
       const decoded = jwtDecode(token)
       if (decoded.username !== currentUser.username) {
         updateUser(decoded.username)

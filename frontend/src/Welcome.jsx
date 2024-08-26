@@ -15,7 +15,6 @@ const Welcome = () => {
         </div>
     }
     
-    console.log(user);
     return <div>Welcome to Jobly, powered by React
             <div>
                 Welcome back, {user.firstName}
