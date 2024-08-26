@@ -28,6 +28,7 @@ function App() {
   useEffect(() => {
     async function updateUser(username) {
       setLoginLoading(true);
+      JoblyApi.token = token;
       const user = await JoblyApi.getUserData(username);
       setCurrentUser(user);
       setLoginLoading(false);
