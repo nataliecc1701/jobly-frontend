@@ -4,7 +4,7 @@ import LoginContext from "./LoginContext";
 import JoblyApi from "./api";
 
 const ProfilePage = () => {
-    const { user } = useContext(LoginContext);
+    const { user, setCurrentUser } = useContext(LoginContext);
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
         username    : user.username,
@@ -29,10 +29,11 @@ const ProfilePage = () => {
     
     const editProfile = async (formData) => {
         const dataToSend = {... formData};
+        delete dataToSend.username;
         const usernameToSend = formData.username;
         
         const user = await JoblyApi.updateUserData(dataToSend, usernameToSend);
-        // setCurrentUser(user);
+        setCurrentUser(user);
         return user;
     }
     
@@ -45,8 +46,7 @@ const ProfilePage = () => {
         <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} autoComplete="last-name" /><br/>
         <label htmlFor="email">Email Address:</label>
         <input type="text" name="email" value={formData.email} onChange={handleChange} autoComplete="email" /><br/>
-        <input type="submit" value="Register" /><br/>
-        <Link to="/login">Already have an account? Log in</Link>
+        <input type="submit" value="Save Changes" /><br/>
     </form>
 }
 
