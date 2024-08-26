@@ -1,7 +1,11 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 
-const Welcome = ({ user }) => {
+import LoginContext from "./LoginContext"
+
+const Welcome = () => {
+    const user = useContext(LoginContext);
+    
     if (!("username" in user)) {
         return <div>Welcome to Jobly, powered by React
             <div>
@@ -10,9 +14,11 @@ const Welcome = ({ user }) => {
             </div>
         </div>
     }
+    
+    console.log(user);
     return <div>Welcome to Jobly, powered by React
             <div>
-                Welcome back, {user.username}
+                Welcome back, {user.firstName}
             </div>
         </div>
 }

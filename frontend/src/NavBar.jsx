@@ -1,10 +1,13 @@
-import React from "react"
+import React, { useContext } from "react"
 import { NavLink } from "react-router-dom";
 import { Navbar, Nav, NavItem } from "reactstrap";
 
 import "./NavBar.css"
+import LoginContext from "./LoginContext";
 
-const NavBar = ({ user }) => {
+const NavBar = () => {
+    const user = useContext(LoginContext)
+    
     function userInfo() {
         if (!("username" in user)) return <div className="NavBar-user-info">
             <NavItem>

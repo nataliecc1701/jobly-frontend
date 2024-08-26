@@ -9,12 +9,12 @@ import LoginPage from "./LoginPage";
 import SignupPage from "./SignupPage";
 import ProfilePage from "./ProfilePage";
 
-const Router = ({user, auth, setLoginLoading}) => {
+const Router = ({auth, setLoginLoading}) => {
     return <BrowserRouter>
-        <NavBar user={user} />
+        <NavBar />
         
         <Routes>
-            <Route exact path="/" element={<Welcome user={user} />} />
+            <Route exact path="/" element={<Welcome />} />
             <Route exact path="/companies" element={<CompaniesList />} />
             <Route path="/companies/:id" element={<CompanyPage />} />
             <Route path="/jobs" element={<JobsList />} />
