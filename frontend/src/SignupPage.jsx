@@ -1,7 +1,51 @@
-import React from "react"
+import React, { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
 
-const SignupPage = () => {
-    return <div>Placeholder for a sign-up form</div>
+const SignupPage = ( {auth, setLoginLoading} ) => {
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState({
+        username    : "",
+        password    : "",
+        firstName   : "",
+        lastName    : "",
+        email       : "",
+    })
+    
+    const handleChange = (evt) => {
+        const { name, value } = evt.target;
+        setFormData({...formData, [name]: value});
+    }
+    
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        signup(formData);
+    }
+    
+    const signup = async (formData) => {
+        setLoginLoading(true);
+        try {
+            await auth(formData, true);
+            navigate("/");
+        } catch (err) {
+            alert(err);
+        }
+        setLoginLoading(false)
+    }
+    
+    return <form className="LoginPage" onSubmit={handleSubmit}>
+        <label htmlFor="username">Username:</label>
+        <input type="text" name="username" value={formData.username} onChange={handleChange} autoComplete="username" /><br/>
+        <label htmlFor="password">Password:</label>
+        <input type="password" name="password" value={formData.password} onChange={handleChange} autoComplete="new-password" /><br/>
+        <label htmlFor="firstName">First Name:</label>
+        <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} autoComplete="given-name" /><br/>
+        <label htmlFor="lastName">Last Name:</label>
+        <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} autoComplete="last-name" /><br/>
+        <label htmlFor="email">Email Address:</label>
+        <input type="text" name="email" value={formData.firstName} onChange={handleChange} autoComplete="email" /><br/>
+        <input type="submit" value="Register" /><br/>
+        <Link to="/login">Already have an account? Log in</Link>
+    </form>
 }
 
 export default SignupPage;
