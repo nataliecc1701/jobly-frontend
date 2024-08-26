@@ -74,7 +74,7 @@ class JoblyApi {
   /** get a token and save it (log in) */
   
   static async getAndSaveToken(userData) {
-    console.log(import.meta.env);
+    console.log("environment is", import.meta.env);
     let res = await this.request(`auth/token/`, userData, "post");
     this.token = res.token;
     return res.token;
