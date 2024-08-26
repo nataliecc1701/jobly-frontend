@@ -6,7 +6,7 @@ import "./NavBar.css"
 import LoginContext from "./LoginContext";
 
 const NavBar = () => {
-    const user = useContext(LoginContext)
+    const {user} = useContext(LoginContext);
     
     function userInfo() {
         if (!("username" in user)) return <div className="NavBar-user-info">
@@ -20,7 +20,7 @@ const NavBar = () => {
         
         return <div className="NavBar-user-info">
             <NavItem>
-            Welcome, {user.username}
+            Welcome, {user.firstName}
             </NavItem>
         </div>
     }

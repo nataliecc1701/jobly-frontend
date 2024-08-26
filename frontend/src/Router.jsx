@@ -9,7 +9,7 @@ import LoginPage from "./LoginPage";
 import SignupPage from "./SignupPage";
 import ProfilePage from "./ProfilePage";
 
-const Router = ({auth, setLoginLoading}) => {
+const Router = () => {
     return <BrowserRouter>
         <NavBar />
         
@@ -18,8 +18,8 @@ const Router = ({auth, setLoginLoading}) => {
             <Route exact path="/companies" element={<CompaniesList />} />
             <Route path="/companies/:id" element={<CompanyPage />} />
             <Route path="/jobs" element={<JobsList />} />
-            <Route path="/login" element={<LoginPage auth={auth} setLoginLoading={setLoginLoading} />} />
-            <Route path="/signup" element={<SignupPage auth={auth} setLoginLoading={setLoginLoading} />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="*" element={<div>Page Not Found (404)</div>} />
         </Routes>

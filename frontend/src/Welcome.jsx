@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import LoginContext from "./LoginContext"
 
 const Welcome = () => {
-    const user = useContext(LoginContext);
+    const {user} = useContext(LoginContext);
     
     if (!("username" in user)) {
         return <div>Welcome to Jobly, powered by React
